@@ -9,7 +9,9 @@ class Timer extends Component{
         const { 
             isPlaying, 
             elapsedTime, 
-            timerDuration 
+            timerDuration,
+            startTimer,
+            restartTimer
         } = this.props;
         return (
             <View style={styles.container}>
@@ -19,10 +21,10 @@ class Timer extends Component{
                 </View>
                 <View style={styles.lower}>
                     {!isPlaying ? (
-                        <Button iconName="play-circle" onPress={() => alert("iT works!")}/>
+                        <Button iconName="play-circle" onPress={startTimer}/>
                     ) : null }
                     {isPlaying ? (
-                        <Button iconName="stop-circle" onPress={() => alert("iT works!")}/>
+                        <Button iconName="stop-circle" onPress={restartTimer}/>
                     ) : null}
                 </View>
             </View>
