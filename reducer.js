@@ -26,6 +26,7 @@ function addSecond(){
 
 // Reducer
 const TIME_DURATION = 25 * 60
+
 const initialState = {
     isPlaying: false,
     elapsedTime: 0,
@@ -40,6 +41,8 @@ function reducer(state = initialState, action){
             return applyRestartTimer(state, action);
         case ADD_SECOND:
             return applyAddSecond(state, action);
+        default:
+            return state;
     }
 }
 
@@ -60,7 +63,7 @@ function applyRestartTimer(state){
     }
 }
 
-function addSecond(state){
+function applyAddSecond(state){
     if (state.elapsedTime < TIME_DURATION){
         return {
             ...state,
